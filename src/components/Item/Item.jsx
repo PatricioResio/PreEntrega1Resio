@@ -1,16 +1,14 @@
-import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 
-function item() {
+function item({ prod }) {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="https://newsport.vtexassets.com/arquivos/ids/14939312/DV3770400-A.jpg?v=638055801836300000" />
+      <Card.Img variant="top" src={prod.img} />
       <Card.Body>
-        <Card.Title>Producto ejemplo</Card.Title>
-        <Card.Text>
-          descripción ejemplo del producto
-        </Card.Text>
-        <Button variant="dark">Agregar al carrito</Button>
+        <Card.Title>{prod.name}</Card.Title>
+        <Card.Text>{prod.category}</Card.Text>
+        <Link to={`/item/${prod.id}`}>ver detalles</Link>
       </Card.Body>
     </Card>
   );

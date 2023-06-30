@@ -3,8 +3,9 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
-function BasicExample() {
+function NavBar() {
   return (
     <Navbar variant="dark" bg="dark" expand="md">
       <Container>
@@ -12,17 +13,12 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mx-auto">
-            <Nav.Link href="/products">Products</Nav.Link>
-           
+            <Nav.Link href="/">Products</Nav.Link>
             <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/shoes">Shoes</NavDropdown.Item>
-              <NavDropdown.Item href="/sportshoes">
-                Sport shoes
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/shirt">Shirt</NavDropdown.Item>
-              <NavDropdown.Item href="/tshirt">
-                T-Shirt
-              </NavDropdown.Item>
+              <NavDropdown.Item > <Link to="/category/shoes">Shoess</Link> </NavDropdown.Item>
+              <NavDropdown.Item >  <Link to="/category/short">Shorts</Link></NavDropdown.Item>
+              <NavDropdown.Item ><Link to="/category/shirt">Shirts</Link> </NavDropdown.Item>
+              <NavDropdown.Item ><Link to="/category/hoodie">Hoodies</Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
           </Navbar.Collapse>
@@ -33,4 +29,4 @@ function BasicExample() {
   );
 }
 
-export default BasicExample;
+export default NavBar;

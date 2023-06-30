@@ -1,24 +1,19 @@
-import  { useState } from 'react'
+import  { useState, useEffect } from 'react'
 
-const Counter = ({stock, inicial}) => {
+const Counter = ({stock, inicial, add}) => {
   const [counter, setCounter] = useState(inicial);
 
-/*     useEffect(() => {
-      first
-    
-      return () => {
-        second
-      }
-    }, [third])
-     */
+  useEffect(()=>{
 
-  const aumentarContador = () =>{
+  },[counter])
+
+  const plusCount = () =>{
     if (counter < stock) {
         setCounter(counter + 1);
     }
   }
   
-  const restarContador = () =>{
+  const restCount = () =>{
     if (counter > inicial ) {
         setCounter(counter - 1);
     }
@@ -26,11 +21,10 @@ const Counter = ({stock, inicial}) => {
 
     return (
     <div>
-        <h2>Counter</h2>
-        <button onClick={aumentarContador}> + </button>
+        <button onClick={plusCount}> + </button>
         <strong> {counter} </strong>
-        <button onClick={restarContador}> - </button>
-        <button>Agregar al carrito</button>
+        <button onClick={restCount}> - </button>
+        <button>Add to Cart</button>
     </div>
   )
 }
